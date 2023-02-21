@@ -1,0 +1,16 @@
+.btn {
+    background: white;
+    border: 1px solid green;
+    color: green;
+    padding: 10px;
+    margin: 2px;
+    transition: all ease 1s;
+    width: 100px;
+    border-radius: 10px;
+}
+.btn:hover {
+    background: green;
+    border-color: white;
+    color: white;
+    cursor: pointer;
+}

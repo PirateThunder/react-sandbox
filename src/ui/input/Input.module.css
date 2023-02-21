@@ -1,0 +1,17 @@
+.input {
+    background: white;
+    border: 1px solid green;
+    color: green;
+    padding: 10px;
+    margin: 2px;
+    transition: all ease 1s;
+    width: 150px;
+    border-radius: 10px;
+    outline: none;
+}
+.input:hover {
+    border-color: darkolivegreen;
+}
+.input:focus {
+    border-color: darkgreen;
+}
