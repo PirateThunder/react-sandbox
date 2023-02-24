@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function List(props) {
+  // {children, ...props} = props;
   const [value, setValue] = useState('');
   const [list, setList] = useState(props.data || [
     {text: 'text1'},

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import classes from './Input.module.css';
 
-function Input(props) {
+function Input({children, ...props}) {
     const [value, setValue] = useState(props.value);
 
     return (
-        <input className={classes.input} onInput={e => setValue(e.target.value)} value={value} />
+        <input {...props} className={classes.input} onInput={e => setValue(e.target.value)} value={value} />
     );  
 }
 

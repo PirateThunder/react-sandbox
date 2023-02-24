@@ -1,9 +1,9 @@
 import classes from './Button.module.css';
 
-function Button(props) {
+function Button({children, ...props}) {
     return (
         <button {...props} className={classes.btn}>
-            {props.children}
+            {children}
         </button>
     );
 }
