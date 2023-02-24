@@ -1,33 +1,27 @@
-import Button from "../ui/button/Button";
-import Input from "../ui/input/Input";
-import ListItemUI from "./ListItemUI";
+
+import ListForm from "./ListForm";
+import ListBody from "./ListBody";
 import { useState } from "react";
 
-function ListUI(props) {
-    const [value, setValue] = useState('');
+function ListUI() {
+    const [val, setVal] = useState('');
     const [list, setList] = useState([
-        // {id: 1, text: 'test1'},
-        // {id: 2, text: 'test2'}
+        {id: 1, text: 'test1'},
+        {id: 2, text: 'test2'}
     ]);
 
-    const handleClick = () => {
-        setList([...list, {
-            id: new Date().getMilliseconds(), 
-            text: value
-        }]);
-        setValue('');
+    const addItem = (newItem) => {
+        setList([...list, newItem]);
+    }
+
+    const removeItem = (item) => {
+        setList(list.filter(i => i.id !== item.id));
     }
 
     return (
         <div>
-            <Input onInput={(e) => setValue(e.target.value)} value={value} />
-            <h1>{value}</h1>
-            <Button onClick={handleClick}>Add</Button>
-            <div>
-                {list.map((item) => (
-                    <ListItemUI key={item.id} text={item.text} />
-                ))}
-            </div>
+            <ListForm val={val} handleClick={addItem} />
+            <ListBody handleClick={removeItem} list={list} />
         </div>
     );
 }

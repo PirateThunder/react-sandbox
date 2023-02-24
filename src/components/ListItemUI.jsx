@@ -1,14 +1,15 @@
-import { useState } from "react";
 import Button from "../ui/button/Button";
 
-function ListItemUI({children, ...props}) {
-    // const [text, setText] = useState(text);
-    console.log(props)
+function ListItemUI(props) {
+    const cb = () => {
+        console.log(props)
+        props.hC(props)
+    }
 
     return (
         <div key={props.id} style={{border: '1px solid green', padding: '10px'}}>
             <p>{props.text}</p>
-            <Button>Delete</Button>
+            <Button onClick={cb}>Delete</Button>
         </div>
     );
 }
