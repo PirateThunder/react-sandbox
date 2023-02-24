@@ -4,11 +4,12 @@ import { useState } from "react";
 
 const ListForm = (props) => {
     const [val, setVal] = useState('');
+    const {handleClick} = {...props};
 
     const addNewItem = () => {
         setVal('');
         const newItem = {id: Date.now(), text: val};
-        props.handleClick(newItem);
+        handleClick(newItem);
     }
 
     return (

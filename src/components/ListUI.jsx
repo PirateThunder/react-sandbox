@@ -1,10 +1,8 @@
-
 import ListForm from "./ListForm";
 import ListBody from "./ListBody";
 import { useState } from "react";
 
-function ListUI() {
-    const [val, setVal] = useState('');
+const ListUI = () =>  {
     const [list, setList] = useState([
         {id: 1, text: 'test1'},
         {id: 2, text: 'test2'}
@@ -14,14 +12,17 @@ function ListUI() {
         setList([...list, newItem]);
     }
 
-    const removeItem = (item) => {
-        setList(list.filter(i => i.id !== item.id));
+    const removeItem = (id) => {
+        setList(list.filter(i => i.id !== id));
     }
 
     return (
         <div>
-            <ListForm val={val} handleClick={addItem} />
-            <ListBody handleClick={removeItem} list={list} />
+            <ListForm handleClick={addItem} />
+            {list.length !== 0
+                ? <ListBody handleClick={removeItem} list={list} />
+                : <h2>Empty!</h2>
+            }
         </div>
     );
 }

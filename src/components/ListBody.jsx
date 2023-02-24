@@ -1,15 +1,16 @@
 import ListItemUI from "./ListItemUI";
 
 const ListBody = (props) => {
-    const cb = (item) => {
-        console.log('work2')
-        props.handleClick(item);
+    const {list, handleClick} = {...props};
+
+    const callback = (item) => {
+        handleClick(item);
     }
 
     return (
         <div>
-            {props.list.map((item) => (
-                <ListItemUI hC={props.handleClick} key={item.id} text={item.text} />
+            {list.map((item) => (
+                <ListItemUI handleClick={callback} key={item.id} id={item.id} text={item.text} />
             ))}
         </div>
     );

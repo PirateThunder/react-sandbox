@@ -1,15 +1,16 @@
 import Button from "../ui/button/Button";
 
 function ListItemUI(props) {
-    const cb = () => {
-        console.log(props)
-        props.hC(props)
+    //console.log(props)
+    const {id, text, handleClick} = {...props};
+    const callback = () => {
+        handleClick(id)
     }
 
     return (
-        <div key={props.id} style={{border: '1px solid green', padding: '10px'}}>
-            <p>{props.text}</p>
-            <Button onClick={cb}>Delete</Button>
+        <div key={id} style={{border: '1px solid green', padding: '10px'}}>
+            <p>{text}</p>
+            <Button onClick={callback}>Delete</Button>
         </div>
     );
 }
